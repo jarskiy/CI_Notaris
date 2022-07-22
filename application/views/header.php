@@ -79,7 +79,7 @@
                 ?>
 
                 <?php if (isset($_SESSION['akses_modul']['sirkulasi']) && $_SESSION['akses_modul']['sirkulasi'] == 'on') {
-                    echo '<li class="nav-item"><a class="nav-link" href="' . site_url('/sirkulasi') . '"><i class="menu-icon mdi mdi-swap-horizontal-bold"></i> <span class="menu-title">Sirkulasi</span></a></li>';
+                    echo '<li class="nav-item"><a class="nav-link" href="' . site_url('/sirkulasi') . '"><i class="menu-icon mdi mdi-swap-horizontal-bold"></i> <span class="menu-title">Peminjaman</span></a></li>';
                 } ?>
                 <?php
                 if ($_SESSION['menu_master']) {
@@ -124,8 +124,8 @@
                     <button class="navbar-toggler navbar-toggler-icon align-self-center" type="button"
                         data-toggle="minimize"></button>
                     <div class="navbar-brand-wrapper">
-                        <a class="navbar-brand brand-logo" href="<?= site_url('/home'); ?>">SIVD</a>
-                        <a class="navbar-brand brand-logo-mini" href="<?= site_url('/home'); ?>">SIVD</a>
+                        <a class="navbar-brand brand-logo" href="<?= site_url('/home'); ?>">NOTARIS SISKA</a>
+                        <a class="navbar-brand brand-logo-mini" href="<?= site_url('/home'); ?>">NOTARIS SISKA</a>
                     </div>
 
                     <ul class="navbar-nav mx-auto">

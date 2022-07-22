@@ -44,7 +44,8 @@
                     <i class="mdi mdi-swap-horizontal-bold icon-lg text-white"></i>
                     <div class="ms-3 ml-md-0 ml-xl-3">
                         <h3 class="font-weight-bold"><a class="text-white text-decoration-none"
-                                href="<?= base_url('/sirkulasi') ?>" alt="Sirkulasi" class="text-white">Sirkulasi</a>
+                                href="<?= base_url('/sirkulasi') ?>" alt="Sirkulasi" class="text-white">Sirkulasi
+                                Peminjaman</a>
                         </h3>
                         <div class="fluid-container">
                             <h1 class="font-weight-medium mb-0 text-white"><?= $countSirkulasi; ?></h1>
@@ -86,12 +87,12 @@
 
     <div class="card-body">
         <!--<?php
-			//if ($this->session->flashdata('zz')) {
-			//echo '<div class="alert alert-success" role="alert">' . $this->session->flashdata('zz') . '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			//<span aria-hidden="true">&times;</span>
-			//</button></div>';
-			//}
-			?>-->
+            //if ($this->session->flashdata('zz')) {
+            //echo '<div class="alert alert-success" role="alert">' . $this->session->flashdata('zz') . '<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            //<span aria-hidden="true">&times;</span>
+            //</button></div>';
+            //}
+            ?>-->
         <!-- /.row -->
         <!-- Page Features -->
         <div class="table-responsive">
@@ -111,23 +112,23 @@
                 <tbody>
                     <?php if (!empty($data)) { ?>
                     <?php foreach ($data as $a) {
-							echo "<tr>";
-							echo "<td>" . $a['noakta'] . "</td>";
-							echo "<td>" . $a['nama_dokumen'] . "</td>";
-							echo "<td align=\"center\">" . $a['tanggal'] . "</td>";
-							if ($a['status_aktif'] == '1') {
-								echo "<td align=\"center\"><div class=\"badge badge-success\"><i class=\"ti-thumb-up\"></i> Aktif</div></td>";
-							} else {
-								echo "<td align=\"center\"><div class=\"badge badge-danger\"><i class=\"ti-thumb-down\"></i> Tdk Aktif</div></td>";
-							}
+                            echo "<tr>";
+                            echo "<td>" . $a['noakta'] . "</td>";
+                            echo "<td>" . $a['nama_dokumen'] . "</td>";
+                            echo "<td align=\"center\">" . $a['tanggal'] . "</td>";
+                            if ($a['status_aktif'] == '1') {
+                                echo "<td align=\"center\"><div class=\"badge badge-success\"><i class=\"ti-thumb-up\"></i> Aktif</div></td>";
+                            } else {
+                                echo "<td align=\"center\"><div class=\"badge badge-danger\"><i class=\"ti-thumb-down\"></i> Tdk Aktif</div></td>";
+                            }
 
-							echo "<td align=\"center\"><a href=" . base_url('dokumen/detail/' . $a['idakta'] . '') . " target=\"_blank\">Link</a></td>";
-							if ($a['file'] == "") {
-								echo "<td></td>";
-							} else {
-								echo "<td align=\"center\"><a href='" . base_url('files/' . $a['file']) . "' target='_blank'><i class='fa fa-file fa-lg' aria-hidden='true'></i></a></td>";
-							}
-							echo "<td align=\"center\"><a href=\"#showQR-" . $a['id'] . "\" data-bs-toggle=\"modal\" data-bs-target=\"#showQR-" . $a['id'] . "\"><i class='fa fa-qrcode fa-lg' aria-hidden='true'></i></a>
+                            echo "<td align=\"center\"><a href=" . base_url('dokumen/detail/' . $a['idakta'] . '') . " target=\"_blank\">Link</a></td>";
+                            if ($a['file'] == "") {
+                                echo "<td></td>";
+                            } else {
+                                echo "<td align=\"center\"><a href='" . base_url('files/' . $a['file']) . "' target='_blank'><i class='fa fa-file fa-lg' aria-hidden='true'></i></a></td>";
+                            }
+                            echo "<td align=\"center\"><a href=\"#showQR-" . $a['id'] . "\" data-bs-toggle=\"modal\" data-bs-target=\"#showQR-" . $a['id'] . "\"><i class='fa fa-qrcode fa-lg' aria-hidden='true'></i></a>
 							
 							<div class=\"modal fade\" id=\"showQR-" . $a['id'] . "\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"showQRLabel\" aria-hidden=\"true\">
                       <div class=\"modal-dialog\" role=\"document\">
@@ -151,17 +152,17 @@
                       </div>
                     </div>
 							</td>";
-							echo "<td align=\"center\"><a class=\"me-4\" href='" . site_url('home/view/' . encrypt_url($a['id'])) . "' ><i class=\"fa fa-eye fa-lg text-primary\"></i></a>";
-							if (isset($_SESSION['akses_modul']['entridata']) && $_SESSION['akses_modul']['entridata'] == 'on') {
-								echo "<a class=\"me-4\" href='" . site_url('/admin/vedit/' . encrypt_url($a['id'])) . "'><i class='fa fa-pencil fa-lg text-dark' aria-hidden='true'></i></a>";
-							}
-							if (isset($_SESSION['akses_modul']['entridata']) && $_SESSION['akses_modul']['entridata'] == 'on') {
-								echo "<a class='deldata' id='" . $a['id'] . "' href='#' data-bs-toggle=\"modal\" data-bs-target=\"#deldata\"><i class=\"fa fa-trash fa-lg text-danger\"></i></a>";
-							}
-							echo "</td>";
-							echo "</tr>";
-						}
-						?>
+                            echo "<td align=\"center\"><a class=\"me-4\" href='" . site_url('home/view/' . encrypt_url($a['id'])) . "' ><i class=\"fa fa-eye fa-lg text-primary\"></i></a>";
+                            if (isset($_SESSION['akses_modul']['entridata']) && $_SESSION['akses_modul']['entridata'] == 'on') {
+                                echo "<a class=\"me-4\" href='" . site_url('/admin/vedit/' . encrypt_url($a['id'])) . "'><i class='fa fa-pencil fa-lg text-dark' aria-hidden='true'></i></a>";
+                            }
+                            if (isset($_SESSION['akses_modul']['entridata']) && $_SESSION['akses_modul']['entridata'] == 'on') {
+                                echo "<a class='deldata' id='" . $a['id'] . "' href='#' data-bs-toggle=\"modal\" data-bs-target=\"#deldata\"><i class=\"fa fa-trash fa-lg text-danger\"></i></a>";
+                            }
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     <?php } else { ?>
                     <tr>
                         <td class="text-muted" align="center" colspan="8">Data Kosong</td>
@@ -173,8 +174,8 @@
 
         <div class="mt-2">
             <?php
-			echo $pages;
-			?>
+            echo $pages;
+            ?>
         </div>
         <!-- /.row -->
     </div>
@@ -238,12 +239,12 @@
                                     <select class="form-select" name="kode" id="zkode">
                                         <option value="all">Semua</option>
                                         <?php
-										if (isset($kode)) {
-											foreach ($kode as $p) {
-												echo "<option value=\"" . $p['kode'] . "\" " . ($src['kode'] == $p['kode'] ? "selected=selected" : "") . ">" . $p['kode'] . " - " . $p['nama'] . "</option>";
-											}
-										}
-										?>
+                                        if (isset($kode)) {
+                                            foreach ($kode as $p) {
+                                                echo "<option value=\"" . $p['kode'] . "\" " . ($src['kode'] == $p['kode'] ? "selected=selected" : "") . ">" . $p['kode'] . " - " . $p['nama'] . "</option>";
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -269,12 +270,12 @@
                                     <select class="form-select" name="penc" id="penc">
                                         <option value="all">Semua</option>
                                         <?php
-										if (isset($penc)) {
-											foreach ($penc as $p) {
-												echo "<option value=\"" . $p['id'] . "\" " . ($src['penc'] == $p['id'] ? "selected=selected" : "") . ">" . " - " . $p['nama_pencipta'] . "</option>";
-											}
-										}
-										?>
+                                        if (isset($penc)) {
+                                            foreach ($penc as $p) {
+                                                echo "<option value=\"" . $p['id'] . "\" " . ($src['penc'] == $p['id'] ? "selected=selected" : "") . ">" . " - " . $p['nama_pencipta'] . "</option>";
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -285,12 +286,12 @@
                                     <select class="form-select" name="med" id="med">
                                         <option value="all">Semua</option>
                                         <?php
-										if (isset($med)) {
-											foreach ($med as $p) {
-												echo "<option value=\"" . $p['id'] . "\" " . ($src['med'] == $p['id'] ? "selected=selected" : "") . ">" . " - " . $p['nama_media'] . "</option>";
-											}
-										}
-										?>
+                                        if (isset($med)) {
+                                            foreach ($med as $p) {
+                                                echo "<option value=\"" . $p['id'] . "\" " . ($src['med'] == $p['id'] ? "selected=selected" : "") . ">" . " - " . $p['nama_media'] . "</option>";
+                                            }
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
