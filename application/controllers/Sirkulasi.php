@@ -148,13 +148,18 @@ class Sirkulasi extends CI_Controller
 			$tgl_haruskembali = $this->__sanitizeString($this->input->post('tgl_haruskembali'));
 			$tgl_transaksi = $now;
 
-			$q = "INSERT INTO sirkulasi VALUES (NULL, '$idakta','$username_peminjam','$keperluan','$tgl_pinjam',
-				'$tgl_haruskembali', NULL, NOW());";
+			$q = "INSERT INTO sirkulasi(noakta, username_peminjam, keperluan, tgl_pinjam, tgl_haruskembali, tgl_transaksi) VALUES ('$idakta','$username_peminjam','$keperluan','$tgl_pinjam','$tgl_haruskembali','$tgl_transaksi')";
 			//echo $q; die();
 			$hsl = $this->db->query($q);
 			//var_dump($row);
-			$this->session->set_flashdata('success', "Data berhasil disimpan");
-			redirect('/sirkulasi', 'refresh');
+			if ($hsl) {
+				$this->session->set_flashdata('success', "Data berhasil disimpan");
+				redirect('/sirkulasi', 'refresh');
+			} else {
+
+				$this->session->set_flashdata('error', "Data Gagal disimpan");
+				redirect('/sirkulasi', 'refresh');
+			}
 		} else {
 			$this->session->set_flashdata('error', "Data Akta tidak Ada");
 			redirect('/sirkulasi/entr');
