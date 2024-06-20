@@ -169,8 +169,14 @@ class Sirkulasi extends CI_Controller
 	public function vedit($id)
 	{
 		if ($id != "") {
-			$q = "select * from sirkulasi where id=$id";
-			$hsl = $this->db->query($q);
+			// Ini berisiko terkena SQL Injection
+			//$q = "select * from sirkulasi where id=$id";
+			//$hsl = $this->db->query($q);
+			
+			//Gunakan parameter binding atau escape ID untuk mencegah SQL injection.
+			$q = "SELECT * FROM sirkulasi WHERE id = ?";
+			$hsl = $this->db->query($q, array($id));
+
 			$row = $hsl->row_array();
 			$previous = "";
 			if (isset($_SERVER['HTTP_REFERER'])) {
